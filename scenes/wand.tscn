@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc7kfw8e4cv1y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r42me"]
+bounce = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_doxkk"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wapis"]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mbr8v"]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xmhld"]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mo048"]
+bounce = 0.5
+
+[node name="Wand" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+physics_material_override = SubResource("PhysicsMaterial_r42me")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5, -10)
+shape = SubResource("BoxShape3D_doxkk")
+
+[node name="Wand2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+physics_material_override = SubResource("PhysicsMaterial_wapis")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.06653, 0)
+shape = SubResource("BoxShape3D_doxkk")
+
+[node name="Wand3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 10)
+physics_material_override = SubResource("PhysicsMaterial_mbr8v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.06653, 0)
+shape = SubResource("BoxShape3D_doxkk")
+
+[node name="Wand4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+physics_material_override = SubResource("PhysicsMaterial_xmhld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand4"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10, 5.067, 0)
+shape = SubResource("BoxShape3D_doxkk")
+
+[node name="Decke" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
+physics_material_override = SubResource("PhysicsMaterial_mo048")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decke"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 15, 0)
+shape = SubResource("BoxShape3D_doxkk")

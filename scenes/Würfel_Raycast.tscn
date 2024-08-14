@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5sw73kymigdq"]
+
+[ext_resource type="Script" path="res://Würfel_Raycast.gd" id="1_b7fb3"]
+
+[node name="WürfelRaycast" type="RayCast3D"]
+target_position = Vector3(0, -0.1, 0)
+hit_from_inside = true
+script = ExtResource("1_b7fb3")

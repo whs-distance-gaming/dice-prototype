@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bikmtjrjq41lp"]
+
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_f3vn6"]
+[ext_resource type="PackedScene" uid="uid://fylhjklwtcgh" path="res://scenes/boden.tscn" id="1_p33gw"]
+[ext_resource type="PackedScene" uid="uid://bbgw4fw0wp87o" path="res://scenes/würfel.tscn" id="2_rresn"]
+[ext_resource type="PackedScene" uid="uid://bc7kfw8e4cv1y" path="res://scenes/wand.tscn" id="3_o566f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p4shd"]
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_f3vn6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.010018, 0.99995, 0, -0.99995, -0.010018, 0, 17.5903, 0)
+
+[node name="Boden" parent="." instance=ExtResource("1_p33gw")]
+
+[node name="Würfel" parent="." instance=ExtResource("2_rresn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Wand" parent="." instance=ExtResource("3_o566f")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -34.5
+offset_right = 0.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_p4shd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="roll_finished" from="Würfel" to="." method="_on_würfel_roll_finished"]
