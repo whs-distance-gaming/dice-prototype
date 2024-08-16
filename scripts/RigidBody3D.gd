@@ -17,8 +17,11 @@ func _process(_delta):
 
 func _roll_dice():
 	sleeping = false
-	var random_force = Vector3(randi_range(-40, 40), randi_range(-80, 80), randi_range(-40, 40))
-	var random_torque = Vector3(randi_range(-40, 40), randi_range(-80, 80), randi_range(-40, 40))
+	var random_number = randi_range(-50,50)
+	while random_number < 20 and random_number > -20:
+		random_number = randi_range(-50, 50)
+	var random_force = Vector3(random_number, random_number, random_number)
+	var random_torque = Vector3(random_number, random_number, random_number)
 	
 	apply_impulse(Vector3(), random_force)
 	apply_torque_impulse(random_torque)
