@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_pressed("ui_accept")&& sleeping:
+	if Input.is_action_pressed("ui_accept") && sleeping:
 		randomize()
 		_roll_dice()
 
@@ -42,10 +42,16 @@ func get_random_force(min_value: float, max_value: float) -> Vector3:
 
 
 func _on_sleeping_state_changed():
+	var result_list = []
+	var total
 	if sleeping && !first_roll:
 		for raycast in raycasts:
 			if raycast.is_colliding():
 				roll_finished.emit(raycast.opposite_side)
+				#result_list.append(raycast.opposite_side)
+			#for result in result_list:
+				#total += result
+			#roll_finished.emit(total)
 
 
 func _on_button_pressed():
