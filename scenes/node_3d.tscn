@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bikmtjrjq41lp"]
+[gd_scene load_steps=8 format=3 uid="uid://bikmtjrjq41lp"]
 
 [ext_resource type="PackedScene" uid="uid://fylhjklwtcgh" path="res://scenes/boden.tscn" id="1_p33gw"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_v67xs"]
@@ -9,6 +9,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_p4shd"]
 font = ExtResource("5_17cvp")
 font_size = 50
+
+[sub_resource type="GDScript" id="GDScript_nmnhc"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_v67xs")
@@ -45,4 +47,22 @@ label_settings = SubResource("LabelSettings_p4shd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.407
+anchor_top = 0.836
+anchor_right = 0.576
+anchor_bottom = 0.932
+offset_left = 0.135986
+offset_top = 0.271973
+offset_right = -0.552063
+offset_bottom = 0.0639648
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_17cvp")
+theme_override_font_sizes/font_size = 30
+text = "roll"
+script = SubResource("GDScript_nmnhc")
+
 [connection signal="roll_finished" from="Würfel" to="." method="_on_würfel_roll_finished"]
+[connection signal="pressed" from="CanvasLayer/Button" to="Würfel" method="_on_button_pressed"]
