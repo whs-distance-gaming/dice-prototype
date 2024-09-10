@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbgw4fw0wp87o"]
+[gd_scene load_steps=5 format=3 uid="uid://bbgw4fw0wp87o"]
 
 [ext_resource type="Script" path="res://scripts/RigidBody3D.gd" id="1_ev7hl"]
 [ext_resource type="ArrayMesh" uid="uid://uj63ewjok8pi" path="res://assets/Würfel.obj" id="2_8c4l3"]
-[ext_resource type="Script" path="res://scripts/Würfel_Raycast.gd" id="3_sov0p"]
 [ext_resource type="PackedScene" uid="uid://c5sw73kymigdq" path="res://scenes/Würfel_Raycast.tscn" id="3_u710c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sl3o3"]
@@ -25,37 +24,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8229, 0)
 
 [node name="WürfelRaycast1" parent="Raycasts" instance=ExtResource("3_u710c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.952176, 0)
-script = ExtResource("3_sov0p")
 opposite_side = 1
 
 [node name="WürfelRaycast2" parent="Raycasts" instance=ExtResource("3_u710c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 target_position = Vector3(0.1, 0, 0)
-script = ExtResource("3_sov0p")
 opposite_side = 4
 
 [node name="WürfelRaycast3" parent="Raycasts" instance=ExtResource("3_u710c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 target_position = Vector3(0, 0, 0.1)
-script = ExtResource("3_sov0p")
 opposite_side = 2
 
 [node name="WürfelRaycast4" parent="Raycasts" instance=ExtResource("3_u710c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0.1, 0)
-script = ExtResource("3_sov0p")
 opposite_side = 6
 
 [node name="WürfelRaycast5" parent="Raycasts" instance=ExtResource("3_u710c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 target_position = Vector3(0, 0, -0.1)
-script = ExtResource("3_sov0p")
 opposite_side = 5
 
 [node name="WürfelRaycast6" parent="Raycasts" instance=ExtResource("3_u710c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 target_position = Vector3(-0.1, 0, 0)
-script = ExtResource("3_sov0p")
 opposite_side = 3
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

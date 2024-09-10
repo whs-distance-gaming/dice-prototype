@@ -1,20 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bikmtjrjq41lp"]
+[gd_scene load_steps=7 format=3 uid="uid://bikmtjrjq41lp"]
 
 [ext_resource type="PackedScene" uid="uid://fylhjklwtcgh" path="res://scenes/boden.tscn" id="1_p33gw"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_v67xs"]
 [ext_resource type="PackedScene" uid="uid://bbgw4fw0wp87o" path="res://scenes/würfel.tscn" id="2_rresn"]
 [ext_resource type="PackedScene" uid="uid://bc7kfw8e4cv1y" path="res://scenes/wand.tscn" id="3_o566f"]
+[ext_resource type="FontFile" uid="uid://cnmr64wgvcdwy" path="res://assets/Nexa-Trial-Black.ttf" id="5_17cvp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4shd"]
+font = ExtResource("5_17cvp")
 font_size = 50
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_v67xs")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+transform = Transform3D(1, 0, 0, 0, 0.604474, 0.796625, 0, -0.796625, 0.604474, 0, 20.621, 15.8172)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.010018, 0.99995, 0, -0.99995, -0.010018, 0, 17.5903, 0)
