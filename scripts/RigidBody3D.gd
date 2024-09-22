@@ -2,7 +2,7 @@ extends RigidBody3D
 
 var is_rolling = false
 var first_roll = true
-signal roll_finished(value)
+signal roll_finished(values)
 @onready var raycasts = $Raycasts.get_children()
 
 # Called when the node enters the scene tree for the first time.
@@ -42,16 +42,11 @@ func get_random_force(min_value: float, max_value: float) -> Vector3:
 
 
 func _on_sleeping_state_changed():
-	var result_list = []
-	var total
 	if sleeping && !first_roll:
 		for raycast in raycasts:
+			var value = raycast.opposite_side
 			if raycast.is_colliding():
-				roll_finished.emit(raycast.opposite_side)
-				#result_list.append(raycast.opposite_side)
-			#for result in result_list:
-				#total += result
-			#roll_finished.emit(total)
+				roll_finished.emit(value)
 
 
 func _on_button_pressed():
