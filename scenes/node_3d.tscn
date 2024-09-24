@@ -19,24 +19,18 @@ script = ExtResource("1_v67xs")
 transform = Transform3D(1, 0, 0, 0, 0.604474, 0.796625, 0, -0.796625, 0.604474, 0, 20.621, 15.8172)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.010018, 0.99995, 0, -0.99995, -0.010018, 0, 17.5903, 0)
+transform = Transform3D(1, 0, 0, 0, -0.010018, 0.99995, 0, -0.99995, -0.010018, 0, 31.462, 0)
 
 [node name="Boden" parent="." instance=ExtResource("1_p33gw")]
 
 [node name="Würfel" parent="." instance=ExtResource("2_rresn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Würfel2" parent="." instance=ExtResource("2_rresn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-
-[node name="Würfel3" parent="." instance=ExtResource("2_rresn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16744, 0, 0)
-
 [node name="Wand" parent="." instance=ExtResource("3_o566f")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Result" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -53,7 +47,7 @@ label_settings = SubResource("LabelSettings_p4shd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button_roll" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.407
 anchor_top = 0.836
@@ -70,7 +64,42 @@ theme_override_font_sizes/font_size = 30
 text = "roll"
 script = SubResource("GDScript_nmnhc")
 
+[node name="Button_reset" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.407
+anchor_top = 0.836
+anchor_right = 0.576
+anchor_bottom = 0.932
+offset_left = 563.136
+offset_top = 0.271973
+offset_right = 464.448
+offset_bottom = 0.0640259
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_17cvp")
+theme_override_font_sizes/font_size = 30
+text = "reset"
+script = SubResource("GDScript_nmnhc")
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer"]
+offset_left = 11.0
+offset_top = 258.0
+offset_right = 94.0625
+offset_bottom = 289.0
+max_value = 30.0
+value = 1.0
+rounded = true
+
+[node name="Dices" type="Label" parent="CanvasLayer"]
+offset_left = 11.0
+offset_top = 210.0
+offset_right = 91.0
+offset_bottom = 249.0
+theme_override_fonts/font = ExtResource("5_17cvp")
+theme_override_font_sizes/font_size = 30
+text = "Dices"
+
 [connection signal="roll_finished" from="Würfel" to="." method="_on_würfel_roll_finished"]
-[connection signal="roll_finished" from="Würfel2" to="." method="_on_würfel_roll_finished"]
-[connection signal="roll_finished" from="Würfel3" to="." method="_on_würfel_roll_finished"]
-[connection signal="pressed" from="CanvasLayer/Button" to="Würfel" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button_roll" to="Würfel" method="_on_button_roll_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button_reset" to="." method="_on_button_reset_pressed"]
+[connection signal="value_changed" from="CanvasLayer/SpinBox" to="." method="_on_spin_box_value_changed"]

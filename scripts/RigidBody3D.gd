@@ -2,6 +2,7 @@ extends RigidBody3D
 
 var is_rolling = false
 var first_roll = true
+var pressed = false
 signal roll_finished(values)
 @onready var raycasts = $Raycasts.get_children()
 
@@ -11,16 +12,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_pressed("ui_accept") && sleeping:
+	if (Input.is_action_pressed("ui_accept") or pressed) and sleeping:
+		pressed = false
 		randomize()
 		_roll_dice()
+		
+func _on_button_roll_pressed() -> void:
+	pressed = true
 
 func _roll_dice():
 	sleeping = false
-	
-	var random_force = get_random_force(-70, 70)
-	var random_torque = get_random_force(-70, 70)
-	
+	var random_force = get_random_force(-60, 60)
+	var random_torque = get_random_force(-60, 60)
 	apply_impulse(Vector3(), random_force)
 	apply_torque_impulse(random_torque)
 	is_rolling = true
@@ -47,8 +50,3 @@ func _on_sleeping_state_changed():
 			var value = raycast.opposite_side
 			if raycast.is_colliding():
 				roll_finished.emit(value)
-
-
-func _on_button_pressed():
-	randomize()
-	_roll_dice()
