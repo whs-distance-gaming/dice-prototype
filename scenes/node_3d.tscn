@@ -86,6 +86,7 @@ offset_left = 11.0
 offset_top = 258.0
 offset_right = 94.0625
 offset_bottom = 289.0
+min_value = 1.0
 max_value = 30.0
 value = 1.0
 rounded = true
@@ -98,6 +99,15 @@ offset_bottom = 249.0
 theme_override_fonts/font = ExtResource("5_17cvp")
 theme_override_font_sizes/font_size = 30
 text = "Dices"
+
+[node name="Hinweis" type="Label" parent="CanvasLayer"]
+offset_left = 493.0
+offset_top = 612.0
+offset_right = 641.0
+offset_bottom = 651.0
+theme_override_fonts/font = ExtResource("5_17cvp")
+theme_override_font_sizes/font_size = 20
+text = "oder Leertaste"
 
 [connection signal="roll_finished" from="Würfel" to="." method="_on_würfel_roll_finished"]
 [connection signal="pressed" from="CanvasLayer/Button_roll" to="Würfel" method="_on_button_roll_pressed"]
