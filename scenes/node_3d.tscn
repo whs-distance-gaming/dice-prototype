@@ -61,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_17cvp")
 theme_override_font_sizes/font_size = 30
-text = "roll"
+text = "würfeln"
 script = SubResource("GDScript_nmnhc")
 
 [node name="Button_reset" type="Button" parent="CanvasLayer"]
@@ -98,16 +98,16 @@ offset_right = 91.0
 offset_bottom = 249.0
 theme_override_fonts/font = ExtResource("5_17cvp")
 theme_override_font_sizes/font_size = 30
-text = "Dices"
+text = "Würfel"
 
 [node name="Hinweis" type="Label" parent="CanvasLayer"]
-offset_left = 493.0
-offset_top = 612.0
-offset_right = 641.0
-offset_bottom = 651.0
+offset_left = 453.0
+offset_top = 609.0
+offset_right = 680.0
+offset_bottom = 648.0
 theme_override_fonts/font = ExtResource("5_17cvp")
 theme_override_font_sizes/font_size = 20
-text = "oder Leertaste"
+text = "oder Leertaste drücken"
 
 [connection signal="roll_finished" from="Würfel" to="." method="_on_würfel_roll_finished"]
 [connection signal="pressed" from="CanvasLayer/Button_roll" to="Würfel" method="_on_button_roll_pressed"]
